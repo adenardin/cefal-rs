@@ -1,0 +1,23 @@
+Executing SQL script in server
+ERROR: Error 1054: Unknown column 'cefal-rs_coordenadoria_id' in 'cefal-rs_colaboradores'
+SQL Code:
+        ALTER TABLE `cefal-rs`.`cefal-rs_colaboradores` 
+        DROP COLUMN `cefal-rs_categoria_id`,
+        CHANGE COLUMN `cefal-rs_gabinete_id` `cefal-rs_gabinete_id` INT(11) NULL DEFAULT NULL COMMENT '' AFTER `cefal-rs_coordenadoria_id`,
+        CHANGE COLUMN `cefal-rs_colaborador_cep` `cefal-rs_colaborador_cep` INT(8) NOT NULL COMMENT '' ,
+        ADD COLUMN `cefal-rs_colaborador_rg` INT(10) NOT NULL COMMENT '' AFTER `cefal-rs_colaborador_cep`,
+        ADD COLUMN `cefal-rs_colaborador_cpf` INT(11) NOT NULL COMMENT '' AFTER `cefal-rs_colaborador_rg`,
+        ADD COLUMN `cefal-rs_coordenadoria_id` INT(11) NULL DEFAULT NULL COMMENT '' AFTER `cefal-rs_colaborador_foto`,
+        ADD COLUMN `cefal-rs_colaborador_data_criacao` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '' AFTER `cefal-rs_gabinete_id`,
+        ADD COLUMN `cefal-rs_colaborador_data_edicao` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '' AFTER `cefal-rs_colaborador_data_criacao`,
+        ADD COLUMN `cefal-rs_administrador_id` INT(11) NOT NULL COMMENT '' AFTER `cefal-rs_colaborador_data_edicao`,
+        ADD UNIQUE INDEX `cefal-rs_colaborador_id_UNIQUE` (`cefal-rs_colaborador_id` ASC)  COMMENT '',
+        ADD UNIQUE INDEX `cefal-rs_colaborador_cpf_UNIQUE` (`cefal-rs_colaborador_cpf` ASC)  COMMENT '',
+        ADD UNIQUE INDEX `cefal-rs_colaborador_rg_UNIQUE` (`cefal-rs_colaborador_rg` ASC)  COMMENT '',
+        ADD UNIQUE INDEX `cefal-rs_colaborador_matricula_UNIQUE` (`cefal-rs_colaborador_matricula` ASC)  COMMENT '',
+        ADD UNIQUE INDEX `cefal-rs_colaborador_nome_UNIQUE` (`cefal-rs_colaborador_nome` ASC)  COMMENT ''
+
+SQL script execution finished: statements: 6 succeeded, 1 failed
+
+Fetching back view definitions in final form.
+1 views were read back.
